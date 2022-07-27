@@ -14,6 +14,9 @@
       <v-btn @click="moment">
         moment
       </v-btn>
+      <v-btn @click="dialog">
+        dialog
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -39,6 +42,14 @@ export default {
     },
     moment() {
       this.text = this.$moment().toLocaleString();
+    },
+    async dialog() {
+      const res = this.$dialog.confirm({
+        text: "Do you want to exit?",
+        title: "Warning"
+      });
+
+      this.text = res;
     }
   }
 }
